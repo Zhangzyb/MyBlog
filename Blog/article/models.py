@@ -1,8 +1,7 @@
-
-
 from django.contrib.auth.models import User
 from django.db import models
 from django.utils import timezone
+from mdeditor.fields import MDTextField
 
 
 class Category(models.Model):
@@ -29,8 +28,8 @@ class Tag(models.Model):
 
 class Article(models.Model):
     title = models.CharField('标题',max_length=200)
-    text = models.TextField('正文')
-    create_time = models.DateTimeField('创建时间', default=timezone.now())
+    text = MDTextField('正文')
+    create_time = models.DateTimeField('创建时间', default=timezone.now)
     modified_time = models.DateTimeField('修改时间')
     author = models.ForeignKey(User, verbose_name='作者', on_delete=models.CASCADE)
     abstract = models.CharField('摘要', max_length=500)
