@@ -3,8 +3,8 @@ from article.models import Article, Tag, Category
 
 
 class PostAdmin(admin.ModelAdmin):
-    list_display = ['title', 'create_time', 'modified_time', 'category', 'author']
-    fields = ['title', 'text', 'abstract', 'category', 'tag']
+    list_display = ['title', 'english_name','create_time', 'modified_time', 'category', 'author']
+    fields = ['title', 'english_name', 'image', 'text', 'category', 'tag']
 
     def save_model(self, request, obj, form, change):
         obj.author = request.user
