@@ -222,3 +222,28 @@ a:hover {
     font-family: 华文行楷,'Times New Roman', 楷体, Cambria, Cochin, Georgia, Times, serif;
 }
 
+.fa-home {
+    font-size: 1.5rem;
+    color: #fff;
+}
+
+.fa-home:hover {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+#g {
+    margin: -10px auto 10px;
+}
+
+#aside-second {
+    border-radius: 0 20px 20px;
+}
+
+.category{
+    margin-left: 7px;
+}
+
+.post-date {
+    margin: 0 10px;
+    font-size: 2em;
+}
