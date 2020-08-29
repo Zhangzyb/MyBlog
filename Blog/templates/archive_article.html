@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load article_extra %}
+
+{% block date %}
+<div class="archive">
+    <span>
+        <i class="fas fa-calendar" style="color:#FF6767"></i>
+        {{ date.year }} / {{ date.month }}
+    </span>
+</div>
+{% endblock date %}
+
+{% block article %}
+    {% articles %}
+{% endblock article %}
+
