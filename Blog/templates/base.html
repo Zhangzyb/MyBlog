@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-
+{% load article_extra %}
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -8,7 +8,7 @@
     {#    <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.css" rel="stylesheet">#}
     <link rel="stylesheet" href="/static/css/monokai-sublime.css">
     <link rel="stylesheet" href="/static/css/mycss.css">
-    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.14.0/css/all.css" >
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.14.0/css/all.css">
     <title>一往无前</title>
     <style>
         /*代码高亮及行数*/
@@ -47,7 +47,7 @@
 <body>
 <div class="header">
     <nav class="navbar fixed-top navbar-expand-lg ">
-        <a class="navbar-brand" href="#">ZYB'S blog</a>
+        <a class="navbar-brand" href="{% url 'article:index' %}">ZYB'S blog</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="fas fa-home"></span>
@@ -78,7 +78,7 @@
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2 search-input" type="search"  aria-label="Search">
+                <input class="form-control mr-sm-2 search-input" type="search" aria-label="Search">
                 <button class="btn btn btn-outline-primary my-2 my-sm-0 fa fa-search s active" type="submit"></button>
             </form>
         </div>
@@ -100,7 +100,8 @@
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="https://api.btstu.cn/sjbz/api.php?lx=fengjing&format=images" class="d-block w-100 img-fluid" alt="...">
+                    <img src="https://api.btstu.cn/sjbz/api.php?lx=fengjing&format=images"
+                         class="d-block w-100 img-fluid" alt="...">
                     <div class="carousel-caption d-none d-md-block">
                         <h5>Second slide label</h5>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
@@ -127,7 +128,7 @@
 </div>
 <div class="container">
     <div class="row">
-        <div class="col-12 col-md-4">
+        <div class="col-12 col-lg-4">
             <div id="aside-first" class="card">
                 <span id="mind">每日一言</span>
                 <span id="date"> 2020年8月22日</span>
@@ -149,48 +150,19 @@
                     <img src="https://api.ly522.com/ico/favicon.php?url=github.com/" alt="Github"></a>
                 <p class="card-text lg">总有人会被梦想抛弃。</p>
             </div>
-            <div id="aside-third" class="card aside">
-                <!-- <img class="card-img-top" src="img/1.jpg" alt="Card image cap"> -->
-                <div class="card-body tags">
-                    <h5 class="card-title">标签云</h5>
-                    <div class="tag-set">
-                        <a href="#" class="badge badge-primary">Primary</a>
-                        <a href="#" class="badge badge-secondary">Secondary</a>
-                        <a href="#" class="badge badge-success">Success</a>
-                        <a href="#" class="badge badge-danger">Danger</a>
-                        <a href="#" class="badge badge-warning">Warning</a>
-                        <a href="#" class="badge badge-info">Info</a>
-                        <a href="#" class="badge badge-light">Light</a>
-                        <a href="#" class="badge badge-dark">Dark</a></div>
-                </div>
-            </div>
-            <div id="aside-fourth" class="card aside">
-                <h4 class="card-title category">文章归档</h4>
-                <div class="row row-cols-4 post-date">
-                    <div class="col ">
-                        <a class="" href="">2020-8</a>
-                    </div>
-                    <div class="col">
-                        <a href="">2020-8</a>
-                    </div>
-                    <div class="col">
-                        <a href="">2020-8</a>
-                    </div>
-                    <div class="col">
-                        <a href="">2020-8</a>
-                    </div>
-                </div>
-            </div>
+            {% tag %}
+            {% archive %}
         </div>
-        <div class="col-12 col-md-8">
+        <div class="col-12 col-lg-8">
+            {% block date %}
+            {% endblock date %}
             {% block article %}
             {% endblock article %}
         </div>
     </div>
 </div>
 <script type="text/javascript" color="#17a2b8" opacity='0.7' zIndex="-2" count="200"
-        src="https://cdn.bootcdn.net/ajax/libs/canvas-nest.js/1.0.0/canvas-nest.js">
-</script>
+        src="https://cdn.bootcdn.net/ajax/libs/canvas-nest.js/1.0.0/canvas-nest.js"></script>
 <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.bundle.js"></script>
 <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.js"></script>
