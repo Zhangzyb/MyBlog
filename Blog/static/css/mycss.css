@@ -1,5 +1,5 @@
 body {
-    background: url('/static/img/555.jpg') no-repeat center center fixed;
+    background: url('https://i.loli.net/2020/08/28/K6Rd47yTanMUiL8.jpg') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -34,15 +34,15 @@ body {
 .article, .detail-article {
     background-color: rgba(239, 252, 252, 0.9);
     border-radius: 20px;
-    box-shadow: rgba(31, 29, 29, 0.4) 0px 0px 20px;
-    padding: 1.5rem 1.5rem 0rem 1.5rem;
+    box-shadow: rgba(31, 29, 29, 0.4) 0 0 20px;
+    padding: 1.5rem 1.5rem 0 1.5rem;
     transition-duration: 0.6s
 }
 
 .article:hover {
-    -webkit-box-shadow: rgba(1, 130, 150, .2) 0px 0px 30px;
-    -moz-box-shadow: rgba(1, 130, 150, .2) 0px 0px 30px;
-    box-shadow: rgba(31, 29, 29, 0.4) 0px 0px 20px;
+    -webkit-box-shadow: rgba(1, 130, 150, .2) 0 0 30px;
+    -moz-box-shadow: rgba(1, 130, 150, .2) 0 0 30px;
+    box-shadow: rgba(31, 29, 29, 0.4) 0 0 20px;
     -webkit-transform: translate3d(0, -2px, 0);
     transform: translate3d(0, -10px, 0);
     border: rgb(19, 176, 182);
@@ -120,7 +120,7 @@ a:hover {
 }
 
 .aside {
-    margin: 15px 0px;
+    margin: 15px 0;
 }
 
 .card-img {
@@ -212,17 +212,17 @@ a:hover {
 }
 
 .x:hover {
-    -webkit-box-shadow: rgba(1, 130, 150, .2) 0px 0px 30px;
-    -moz-box-shadow: rgba(1, 130, 150, .2) 0px 0px 30px;
-    -webkit-transform: translate3d(0, -2px, 0);
-    box-shadow: rgba(31, 29, 29, 0.4) 0px 0px 20px;
+    -webkit-box-shadow: rgba(1, 130, 150, .2) 0 0 30px;
+    -moz-box-shadow: rgba(1, 130, 150, .2) 0 0 30px;
+    -webkit-transform: translate3d(0, -2, 0);
+    box-shadow: rgba(31, 29, 29, 0.4) 0 0 20px;
     transform: translate3d(0, -10px, 0);
     border: 5px double rgba(243, 243, 239, .6);
     transition-duration: 0.6s
 }
 
 .user {
-    margin: 0px auto 15px;
+    margin: 0 auto 15px;
 }
 
 .lg {
@@ -245,7 +245,7 @@ a:hover {
 }
 
 #aside-second {
-    border-radius: 0px 20px 20px;
+    border-radius: 0 20px 20px;
 }
 
 .category{
@@ -274,6 +274,7 @@ a:hover {
 
 .fa-search {
     /*color: #fff;*/
+    font-size: 22px;
 }
 
 .fa-search:hover {
@@ -291,8 +292,31 @@ a:hover {
     color: #fff;
     background-color: transparent;
     border-color: #fff;
+    border-radius: 40px;
 }
 
 .search-input{
     border-radius: 20px;
+}
+
+.archive{
+    position: relative;
+    width: 100%;
+    font-size: 2em;
+    padding: 2px 25px;
+    margin-bottom: 20px;
+    background: hsla(0,0%,100%,.3);
+    overflow: hidden;
+    border-radius: 25px;
+    font-family:  楷体, 'Times New Roman',  Cambria, Cochin, Georgia, Times, serif;
+}
+
+.archive::before{
+    content: "";
+    position: absolute;
+    top: 0;bottom: 0;
+    left: 0;right: 0;
+    z-index: -1;
+    filter: blur(20px);
+    margin: -30px;
 }
