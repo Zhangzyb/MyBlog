@@ -1,0 +1,40 @@
+<div class="articles ">
+    {% for article in article_list %}
+        <div class="card mb-3 article">
+            <div class="row no-gutters ">
+                <div class="col-12 col-md-5">
+                    <img src="{{ article.image.url }}" class="card-img thumb mr-3" alt="...">
+                </div>
+                <div class="col-12 col-md-7">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <a class="cate" href="">{{ article.category }}
+                            </a> <i class="fas fa-caret-right"></i>
+                            &nbsp;{{ article.title }}</h5>
+                        <p class="card-text post-abstract">{{ article.abstract }}...</p>
+                    </div>
+                </div>
+            </div>
+            <hr class="topline">
+            <div class="bottom">
+                <span class="info">
+                    <a href=""><i class="fa fa-calendar" style="color: rgb(247, 163, 68);"></i>
+                        {{ article.create_time }}</a>
+                    <a class="line" href=""><i class="fa fa-comments"
+                                               style="color: yellowgreen;">&nbsp;</i>0评论</a>&nbsp;
+                    <a href=""><i class="fa fa-eye" style="color: lightskyblue;"></i> 31阅读</a>&nbsp;
+                </span>
+                <span class="d-none d-lg-block info">
+                    <a class="line" href=""><i class="fa fa-heart" style="color: #FF6767;"></i>
+                                    1喜欢</a>&nbsp;
+                    <a class="line" href=""><i class="fa fa-user"
+                                               style="color: #f0c674;"></i>&nbsp;{{ article.author }}</a>
+                </span>
+                <span class="info-right">
+                    <a class="mr-0" href="{% url 'article:detail' article.english_name %}" title="阅读全文">阅读全文<i
+                            class="fa fa-chevron-circle-right"></i></a>
+                </span>
+            </div>
+        </div>
+    {% endfor %}
+</div>
