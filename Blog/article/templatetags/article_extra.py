@@ -1,5 +1,5 @@
 from django import template
-from article.models import Article, Tag
+from article.models import Article, Tag, Category
 
 register = template.Library()
 
@@ -20,3 +20,9 @@ def archive():
 def tag():
     tag_list = Tag.objects.all()
     return {'tag_list': tag_list}
+
+
+@register.inclusion_tag('_category.html', takes_context=True)
+def category(context):
+    subdir_list = Category.objects.filter(parent_id=context['category'].id)
+    return {'subdir_list': subdir_list}
