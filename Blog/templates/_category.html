@@ -1,0 +1,10 @@
+{% load article_extra %}
+{% block category %}
+    {% if subdir_list %}
+        <div class="dropdown-menu mt-0" aria-labelledby="navbarDropdown">
+            {% for subdir in subdir_list %}
+                <a class="dropdown-item" href="#">{{ subdir }}</a>
+            {% endfor %}
+        </div>
+    {% endif %}
+{% endblock category %}
