@@ -12,6 +12,8 @@ body {
 
 .nav-link, .navbar-brand {
     color: #fff;
+    font-size: 20px;
+    font-family: 'Times New Roman', 楷体, Cambria, Cochin, Georgia, Times, serif;
 }
 
 .nav-link:hover, .navbar-brand:hover {
@@ -299,7 +301,7 @@ a:hover {
     border-radius: 20px;
 }
 
-.archive{
+.article_info{
     position: relative;
     width: 100%;
     font-size: 2em;
@@ -311,7 +313,7 @@ a:hover {
     font-family:  楷体, 'Times New Roman',  Cambria, Cochin, Georgia, Times, serif;
 }
 
-.archive::before{
+.article_info::before{
     content: "";
     position: absolute;
     top: 0;bottom: 0;
@@ -319,4 +321,25 @@ a:hover {
     z-index: -1;
     filter: blur(20px);
     margin: -30px;
+}
+
+.dropdown-menu{
+    /* margin: 0; */
+    padding: 0;
+    left: 0;
+    background-color: rgba(214, 211, 211, 0.281);
+}
+
+.dropdown-menu a{
+    text-align: center;
+
+}
+
+.dropdown-menu a:hover{
+    color: aqua;
+    background-color: rgba(31, 29, 29, 0.4);
+}
+
+.fa-feather-alt{
+    float: left;
 }
