@@ -4,7 +4,7 @@
         <h5 class="card-title">标签云</h5>
         <div class="tag-set">
             {% for tag in tag_list %}
-            <a href="{% url 'article:tag' tag.name %}" class="badge badge-primary">{{ tag }}</a>
+            <a href="{% url 'article:tag' tag.name %}" class="badge badge-primary">{{ tag.name }}</a>
 {#            <a href="#" class="badge badge-secondary">Secondary</a>#}
 {#            <a href="#" class="badge badge-success">Success</a>#}
 {#            <a href="#" class="badge badge-danger">Danger</a>#}
