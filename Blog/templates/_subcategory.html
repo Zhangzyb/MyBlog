@@ -1,0 +1,8 @@
+{% if subcategory_list %}
+    <div class="dropdown-menu mt-0" aria-labelledby="navbarDropdown">
+        {% for subcategory in subcategory_list %}
+            <a class="dropdown-item" href="{% url 'article:category' subcategory.cate_name %}"><i
+                    class="fa fa-feather-alt"> </i> {{ subcategory.name }}</a>
+        {% endfor %}
+    </div>
+{% endif %}
