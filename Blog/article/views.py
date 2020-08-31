@@ -1,11 +1,11 @@
 import markdown
 from django.shortcuts import render, get_object_or_404
-from article.models import Article, Tag
+from article.models import Article, Tag, Category
 
 
 def index(request):
-    post_list = Article.objects.all().order_by('-create_time')
-    return render(request, 'index.html', context={'post_list': post_list})
+    article_list = Article.objects.all()
+    return render(request, 'index.html', context={'article_list': article_list})
 
 
 def detail(request, english_name):
@@ -20,10 +20,25 @@ def detail(request, english_name):
 
 def archive(request, year, month):
     article_list = Article.objects.filter(create_time__year=year, create_time__month=month).order_by('-create_time')
-    date = {'year': year, 'month': month}
-    return render(request, 'archive_article.html', context={'article_list': article_list, 'date': date})
+    info = {
+        'info': f'{year}/{month}'
+    }
+    return render(request, 'index.html', context={'article_list': article_list, 'info': info})
 
 
 def tag(request, name):
-    article_list = Tag.objects.filter(name=name)
-    return render(request, 'tag_article.html', context={'article_list':  article_list, 'name': name})
+    tag_id = Tag.objects.filter(name=name).first()
+    article_list = Article.objects.filter(tag=tag_id)
+    info = {
+        'info': name
+    }
+    return render(request, 'index.html', context={'article_list':  article_list, 'info': info})
+
+
+def category(request, cate_name):
+    category_id = Category.objects.filter(cate_name=cate_name).first()
+    article_list = Article.objects.filter(category=category_id)
+    info = {
+        'info': cate_name
+    }
+    return render(request, 'index.html', context={'article_list': article_list, 'info': info})
