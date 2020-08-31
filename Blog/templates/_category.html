@@ -1,10 +1,12 @@
 {% load article_extra %}
-{% block category %}
-    {% if subdir_list %}
-        <div class="dropdown-menu mt-0" aria-labelledby="navbarDropdown">
-            {% for subdir in subdir_list %}
-                <a class="dropdown-item" href="#">{{ subdir }}</a>
-            {% endfor %}
-        </div>
-    {% endif %}
-{% endblock category %}
+<ul class="navbar-nav mr-auto">
+    {% for category in category_list %}
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="javascript:;" id="navbarDropdown" role="button"
+               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                {{ category.name }}
+            </a>
+            {% subcategory %}
+        </li>
+    {% endfor %}
+</ul>
