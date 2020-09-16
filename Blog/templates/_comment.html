@@ -1,0 +1,114 @@
+<div class="card" id="comment-area">
+    <div class="comments">
+        {% if comment_list %}
+        <div class="comment-count">
+            <Strong>——已收到{{ comment_count }}条评论——</Strong>
+        </div>
+        {% for comment in comment_list %}
+        <div class="comment-item">
+            <hr>
+            <div class="reply-btn">
+                <button class="btn btn-dark reply">回复</button>
+            </div>
+            <div class="user-img">
+                <img src="{{ comment.img_url }}" alt="">
+            </div>
+            <div class="user-info">
+                <h5>{{comment.name}}</h5>
+                <h6>{{comment.created_time}}</h6>
+            </div>
+            <div class="comment-content">
+                <p>{{comment.text}}</p>
+            </div>
+            {% if comment.comment_set.all %}
+            <div class="reply-list">
+                {% for reply in comment.comment_set.all %}
+                <div class="reply-item">
+                    <div class="reply-btn">
+                        <button class="btn btn-dark sub_reply">回复</button>
+                    </div>
+                    <div class="user-img">
+                        <img src="{{ reply.img_url }}" alt="">
+                    </div>
+                    <div class="user-info">
+                        <h5>{{ reply.name }}</h5>
+                        <h6>{{ reply.created_time }} </h6>
+                    </div>
+                    <div class="comment-content">
+                        <span class="btn-info">@ {{ reply.reply_name }}:&nbsp;</span>
+                        <p>{{ reply.text }}</p>
+                    </div>
+                    <div class="reply-form reply_div" style="display: none">
+                        <span style="font-size: 1.2em;font-weight: 700;">发表评论</span>
+                        <form action="{% url 'comment:sub_comment' article.english_name comment.id reply.id %}"
+                              method="post">
+                            {% csrf_token %}
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    {{ form.name}}
+                                </div>
+                                <div class="form-group col-md-6">
+                                    {{ form.email }}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                {{ form.text}}
+                            </div>
+                            <div class="comment-submit">
+                                <button type="submit" class="btn btn-success">发表评论</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+            <div class="reply-form reply_div" style="display: none">
+                <span style="font-size: 1.2em;font-weight: 700;">发表评论</span>
+                <form action="{% url 'comment:sub_comment' article.english_name comment.id comment.id %}" method="post">
+                    {% csrf_token %}
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            {{ form.name}}
+                        </div>
+                        <div class="form-group col-md-6">
+                            {{ form.email }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        {{ form.text}}
+                    </div>
+                    <div class="comment-submit">
+                        <button type="submit" class="btn btn-success">发表评论</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        {% endfor %}
+        {% else %}
+        <div class="comment-count">
+            <Strong>——暂无评论——</Strong>
+        </div>
+        {% endif %}
+    </div>
+    <div id="comment_div" class="comment-form">
+        <span style="font-size: 1.2em;font-weight: 700;">发表评论</span>
+        <form action="{% url 'comment:comment' article.english_name %}" method="post">
+            {% csrf_token %}
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    {{ form.name }}
+                </div>
+                <div class="form-group col-md-6">
+                    {{ form.email }}
+                </div>
+            </div>
+            <div class="form-group">
+                {{ form.text }}
+            </div>
+            <div class="comment-submit">
+                <button type="submit" class="btn btn-success">发表评论</button>
+            </div>
+        </form>
+    </div>
+</div>
