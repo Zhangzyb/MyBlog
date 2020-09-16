@@ -1,5 +1,5 @@
 from django.contrib import admin
-from article.models import Article, Tag, Category
+from .models import Article, Tag, Category
 
 
 class PostAdmin(admin.ModelAdmin):
