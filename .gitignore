@@ -1,6 +1,8 @@
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
+.idea
+Blog/article/migrations
 *$py.class
 
 # C extensions
@@ -127,3 +129,5 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+/Blog/static/img/
+/Blog/static/img/
