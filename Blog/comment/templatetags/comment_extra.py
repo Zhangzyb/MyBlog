@@ -8,11 +8,11 @@ register = template.Library()
 def comment(context):
     form = CommentForm()
     article = context['article']
-    comment_list = article.comment_set.all()
-    comment_count = comment_list.count()
+    comment_list = article.comment_set.filter(parent_comment=None)
+    comment_count = article.comment_set.all().count()
     return {
         'form': form,
         'article': article,
         'comment_list': comment_list,
-        'comment_count': comment_count
+        'comment_count': comment_count,
     }
