@@ -34,13 +34,17 @@ class Article(models.Model):
     title = models.CharField('标题',max_length=200)
     english_name = models.CharField('英文名', max_length=100)
     text = MDTextField('正文')
-    image = models.ImageField(upload_to='img/%Y/%m/%d')
+    # image = models.ImageField(upload_to='img/%Y/%m/%d')
+    image = models.CharField('图片地址', max_length=100, null=True)
     create_time = models.DateTimeField('创建时间', default=timezone.now)
     modified_time = models.DateTimeField('修改时间')
     author = models.ForeignKey(User, verbose_name='作者', on_delete=models.CASCADE)
     abstract = models.CharField('摘要', max_length=1000)
     tag = models.ManyToManyField(Tag, verbose_name='标签')
     category = models.ForeignKey(Category, verbose_name='分类', on_delete=models.CASCADE)
+    views = models.PositiveIntegerField(default=0, editable=False)
+    likes = models.PositiveIntegerField(default=0, editable=False)
+
 
     class Meta:
         verbose_name = '文章'
@@ -57,3 +61,7 @@ class Article(models.Model):
         ])
         self.abstract = strip_tags(md.convert(self.text))[:260]
         super().save(*args, **kwargs)
+
+    def inc_views(self):
+        self.views += 1
+        self.save(update_fields=['views'])
