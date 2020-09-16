@@ -21,7 +21,9 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('article.url', namespace='article')),
-    path('mdeditor/', include('mdeditor.urls'))
+    path('', include('comment.url', namespace='comment')),
+    path('mdeditor/', include('mdeditor.urls')),
+    # path(''),
 ]
 
 if settings.DEBUG:
