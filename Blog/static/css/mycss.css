@@ -6,6 +6,24 @@ body {
     background-color: #000000;
 }
 
+p::selection,
+h5::selection,
+span::selection,
+h4::selection,
+a::selection,
+i::selection,
+li::selection,
+h1::selection,
+h2::selection,
+h3::selection,
+h5::selection,
+h6::selection,
+strong::selection,
+code::selection {
+    color: #fff;
+    background-color: #000000;
+}
+
 .navbar {
     background-color: rgba(31, 29, 29, 0.4);
 }
@@ -24,8 +42,8 @@ body {
     margin-top: 30px;
 }
 
-.post-abstract{
-    color:#6c757d;
+.post-abstract {
+    color: #6c757d;
 }
 
 .card {
@@ -75,7 +93,7 @@ a:hover {
     text-decoration: none;
 }
 
-.topline{
+.topline {
     margin-bottom: 4px;
 }
 
@@ -95,13 +113,18 @@ a:hover {
     background-color: rgb(14, 10, 10);
 }
 
+.carousel-caption p {
+    font-size: 18px;
+    font-family: 'Times New Roman', 楷体, Cambria, Cochin, Georgia, Times, serif;
+}
+
 #mind {
     width: 30%;
     font-size: 20px;
     text-align: center;
     margin-bottom: 7px;
     background-color: rgba(57, 241, 149, .3);
-    font-family: 华文行楷,'Times New Roman', 楷体, Cambria, Cochin, Georgia, Times, serif;
+    font-family: 华文行楷, 'Times New Roman', 楷体, Cambria, Cochin, Georgia, Times, serif;
 }
 
 #date {
@@ -151,7 +174,6 @@ a:hover {
 
 #aside-third {
     border-radius: 1rem;
-    /* background-color: #fff; */
 }
 
 .badge {
@@ -172,7 +194,7 @@ a:hover {
 .detail-info {
     text-align: center;
     margin-top: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
     font-family: 'Times New Roman', 楷体, Cambria, Cochin, Georgia, Times, serif;
 }
 
@@ -185,11 +207,11 @@ a:hover {
     text-indent: 2rem;
 }
 
-.dropdown:hover>.dropdown-menu {
+.dropdown:hover > .dropdown-menu {
     display: block;
 }
 
-.dropdown>.dropdown-toggle:active {
+.dropdown > .dropdown-toggle:active {
     pointer-events: none;
 }
 
@@ -209,7 +231,6 @@ a:hover {
     height: 110px;
     border-radius: 50%;
     overflow: hidden;
-    /* float: left; */
     transition-duration: 0.7s
 }
 
@@ -230,7 +251,7 @@ a:hover {
 .lg {
     font-size: 1.5rem;
     margin: 0 auto;
-    font-family: 华文行楷,'Times New Roman', 楷体, Cambria, Cochin, Georgia, Times, serif;
+    font-family: 华文行楷, 'Times New Roman', 楷体, Cambria, Cochin, Georgia, Times, serif;
 }
 
 .fa-home {
@@ -248,9 +269,10 @@ a:hover {
 
 #aside-second {
     border-radius: 0 20px 20px;
+    margin-top: -0.08rem;
 }
 
-.category{
+.category {
     margin-left: 7px;
 }
 
@@ -259,14 +281,13 @@ a:hover {
     font-size: 1.3rem;
 }
 
-.fa-search{
+.fa-search {
     font-size: 24px;
 }
 
-.carousel-item > img{
-    /* clip-path: inset(0 100% 50% 0); */
-    clip-path: inset(50% 0 0 0);
-    margin-top: -30%;
+.carousel-item > img {
+    clip-path: inset(540px 0 0 0);
+    margin-top: -540px;
     width: 100%;
 }
 
@@ -275,7 +296,6 @@ a:hover {
 }
 
 .fa-search {
-    /*color: #fff;*/
     font-size: 22px;
 }
 
@@ -290,56 +310,165 @@ a:hover {
 
 .btn-outline-primary:not(:disabled):not(.disabled):active,
 .btn-outline-primary:not(:disabled):not(.disabled).active,
-.show>.btn-outline-primary.dropdown-toggle {
+.show > .btn-outline-primary.dropdown-toggle {
     color: #fff;
     background-color: transparent;
     border-color: #fff;
     border-radius: 40px;
 }
 
-.search-input{
+.search-input {
     border-radius: 20px;
 }
 
-.article_info{
+.article_info {
     position: relative;
     width: 100%;
     font-size: 2em;
     padding: 2px 25px;
     margin-bottom: 20px;
-    background: hsla(0,0%,100%,.3);
+    background: hsla(0, 0%, 100%, .3);
     overflow: hidden;
     border-radius: 25px;
-    font-family:  楷体, 'Times New Roman',  Cambria, Cochin, Georgia, Times, serif;
+    font-family: 楷体, 'Times New Roman', Cambria, Cochin, Georgia, Times, serif;
 }
 
-.article_info::before{
+.article_info::before {
     content: "";
     position: absolute;
-    top: 0;bottom: 0;
-    left: 0;right: 0;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
     z-index: -1;
     filter: blur(20px);
     margin: -30px;
 }
 
-.dropdown-menu{
+.dropdown-menu {
     /* margin: 0; */
     padding: 0;
     left: 0;
     background-color: rgba(214, 211, 211, 0.281);
 }
 
-.dropdown-menu a{
+.dropdown-menu a {
     text-align: center;
-
 }
 
-.dropdown-menu a:hover{
+.dropdown-menu a:hover {
     color: aqua;
     background-color: rgba(31, 29, 29, 0.4);
 }
 
-.fa-feather-alt{
+.fa-feather-alt {
     float: left;
 }
+
+.form-group input,
+.form-group textarea {
+    margin-top: 10px;
+    border: 2px solid #14c0b781;
+    font-family: 'Times New Roman', 楷体, Cambria, Cochin, Georgia, Times, serif;
+    border-radius: 10px;
+    color: #000000;
+}
+
+.form-control:focus {
+    /*color: #000000;*/
+    border-radius: 10px;
+    background-color: #fff;
+    border-color: #14c0b781;
+    outline: 0;
+    box-shadow: 0 0 0 0.1rem #14c0b781;
+}
+
+.form-group textarea {
+    min-height: 120px;
+    font-size: 20px;
+}
+
+.carousel-caption p {
+    width: fit-content;
+    background-color: #000000;
+    margin: 0 auto;
+}
+
+.card {
+    border-radius: 20px;
+}
+
+.comment-count {
+    text-align: center;
+    margin: 1rem 0;
+    font-size: 1.5rem;
+}
+
+.comment-item {
+    /* background-color: rgba(25, 150, 52, 0.178); */
+    margin: 0.5rem 2rem;
+}
+
+.reply-btn {
+    position: relative;
+}
+
+.reply-btn button {
+    position: absolute;
+    right: 0.4rem;
+    z-index: 10;
+}
+
+.user-img {
+    width: 50px;
+    height: 50px;
+}
+
+.user-img img {
+    width: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.user-info {
+    top: -3.3rem;
+    left: 3.5rem;
+    position: relative;
+}
+
+.comment-content {
+    margin-top: -3rem;
+    /*text-indent: 2em;*/
+    padding: 0 0 0 3rem;
+}
+
+.comment-form, .reply-form {
+    margin: 1rem 2rem;
+}
+
+.comment-submit {
+    text-align: right;
+}
+
+.reply-list {
+    padding: 0 0 0 2.7rem;
+}
+
+/*.reply-item {*/
+/*    padding: 1rem 0 0 1rem;*/
+/*    background-color: rgba(64, 233, 163, 0.199);*/
+/*}*/
+
+.shortcut{
+    padding: 0.1rem 0.7rem;
+}
+
+.pre{
+    float: left;
+}
+
+.next{
+    float: right;
+}
+
+
