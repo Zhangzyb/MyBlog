@@ -1,6 +1,6 @@
 import markdown
 from django.shortcuts import render, get_object_or_404
-from article.models import Article, Tag, Category
+from .models import Article, Tag, Category
 
 
 def index(request):
@@ -10,12 +10,22 @@ def index(request):
 
 def detail(request, english_name):
     article = get_object_or_404(Article, english_name=english_name)
+    if request.user != article.author:
+        article.inc_views()
+    pre_article = Article.objects.filter(id__lt=article.id).order_by('-id').first()
+    next_article = Article.objects.filter(id__gt=article.id).order_by('id').first()
+    comment_count = article.comment_set.all().count()
     article.text = markdown.markdown(article.text,
                                      extensions=[
                                          'markdown.extensions.extra',
                                          'markdown.extensions.codehilite',
                                      ])
-    return render(request, 'detail.html', context={'article': article})
+    return render(request, 'detail.html', context={
+        'article': article,
+        'comment_count': comment_count,
+        'pre_article': pre_article,
+        'next_article': next_article
+    })
 
 
 def archive(request, year, month):
