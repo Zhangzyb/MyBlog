@@ -1,3 +1,24 @@
+/*bootstrap原始修改*/
+
+@media (min-width: 1400px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .container, .container-sm, .container-md, .container-lg, .container-xl {
+    max-width: 1280px;
+  }
+}
+
+.card-body {
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  min-height: 1px;
+  padding: 0.1rem 0.7rem;
+}
+
 body {
     background: url('https://i.loli.net/2020/08/28/K6Rd47yTanMUiL8.jpg') no-repeat center center fixed;
     -webkit-background-size: cover;
@@ -470,5 +491,7 @@ a:hover {
 .next{
     float: right;
 }
+
+
 
 
