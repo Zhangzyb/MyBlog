@@ -10,12 +10,10 @@
     <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.14.0/css/all.css">
     <title>一往无前</title>
     <style>
-        /*代码高亮及行数*/
         .codehilite {
             padding: 0;
         }
 
-        /* for block of numbers */
         .hljs-ln-numbers {
             -webkit-touch-callout: none;
             -webkit-user-select: none;
@@ -34,12 +32,10 @@
             width: 30px;
         }
 
-        /* for block of code */
         .hljs-ln .hljs-ln-code {
             padding-left: 10px;
             white-space: pre;
         }
-
     </style>
 </head>
 
@@ -70,23 +66,29 @@
                 <div class="carousel-item active">
                     <img src="https://api.ixiaowai.cn/gqapi/gqapi.php" class="d-block w-100 img-fluid" alt="...">
                     <div class="carousel-caption d-none d-md-block">
-                        <h5>First slide label</h5>
-                        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                        <p>
+                            <script src="https://api.ly522.com/yan/?code=js"></script>
+                            <script>xlhitokoto()</script>
+                        </p>
                     </div>
                 </div>
                 <div class="carousel-item">
                     <img src="https://api.btstu.cn/sjbz/api.php?lx=fengjing&format=images"
                          class="d-block w-100 img-fluid" alt="...">
                     <div class="carousel-caption d-none d-md-block">
-                        <h5>Second slide label</h5>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <p>
+                            <script type="text/javascript" src="https://api.ccswust.org/api/index.php?type=js"></script>
+                            <script>ishan()</script>
+                        </p>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="https://v1.qqiyu.cn/tu/api.php?lx=fengjing" class="d-block w-100 img-fluid" alt="...">
+                    <img src="https://api.vvhan.com/api/acgimg" class="d-block w-100 img-fluid" alt="...">
                     <div class="carousel-caption d-none d-md-block">
-                        <h5>Third slide label</h5>
-                        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                        <p>
+                            <script type="text/javascript" src="https://api.vvhan.com/api/ian?type=js"></script>
+                            <script>ishan()</script>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -104,20 +106,10 @@
 <div class="container">
     <div class="row">
         <div class="col-12 col-lg-4">
-            <div id="aside-first" class="card">
-                <span id="mind">每日一言</span>
-                <span id="date"> 2020年8月22日</span>
-                <div class="card-body">
-                    <p id="sentence">
-                        <script src="https://api.ly522.com/yan/?code=js"></script>
-                        <script>xlhitokoto()</script>
-                    </p>
-                </div>
-            </div>
             <div id="aside-second" class="card aside">
-                <img id="bg1" class="card-img" src="/static/img/11.jpg" alt="">
+                <img id="bg1" class="card-img" src="https://i.loli.net/2020/09/15/uMKHBpynWsOzYbk.jpg" alt="">
                 <div class="x">
-                    <img id="bg" class="card-img-top " src="/static/img/14.jpg" alt="Card image cap">
+                    <img id="bg" class="card-img-top " src="https://i.loli.net/2020/09/15/nAZhmDaB9uLvJ6l.jpg" alt="Card image cap">
                 </div>
                 <h4 class="card-title user">Zhangzyb</h4>
                 <a id="g" href="https://github.com/Zhangzyb" data-toggle="tooltip" data-placement="top"
@@ -134,6 +126,10 @@
         </div>
     </div>
 </div>
+
+<div class="footer">
+    123
+</div>
 <script type="text/javascript" color="#17a2b8" opacity='0.7' zIndex="-2" count="200"
         src="//cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js"></script>
 <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -144,6 +140,32 @@
 <script>
     hljs.initHighlightingOnLoad();
     hljs.initLineNumbersOnLoad();
+</script>
+<script>
+    var colors = ['badge badge-primary', 'badge badge-secondary', 'badge badge-success', 'badge badge-danger', 'badge badge-warning', 'badge badge-info', 'badge badge-light', 'badge badge-dark']
+    $(".tag-set a").each(function (i, domEle) {
+        $(domEle).addClass(colors[i % 8]);
+    })
+    var comment_common = $("#comment_div");
+    $(".comment-item .reply").click(function () {
+        comment_common.toggle();
+        $(this).parent().siblings(".reply_div").toggle();
+    })
+    $(".reply-item .sub_reply").click(function () {
+        comment_common.toggle();
+        $(this).parent().siblings(".reply_div").toggle();
+    })
+    $(function () {
+        $(window).scroll(function () {
+            if ($(window).scrollTop() > 1000)
+                $('div.go-top').show();
+            else
+                $('div.go-top').hide();
+        });
+        $('div.go-top').click(function () {
+            $('html, body').animate({scrollTop: 0}, 1000);
+        });
+    });
 </script>
 </body>
 </html>
