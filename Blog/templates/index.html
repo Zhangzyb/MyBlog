@@ -11,7 +11,7 @@
             <div class="card mb-3 article">
                 <div class="row no-gutters ">
                     <div class="col-12 col-md-5">
-                        <img src="{{ article.image.url }}" class="card-img thumb mr-3" alt="...">
+                        <img src="{{ article.image }}" class="card-img thumb mr-3" alt="...">
                     </div>
                     <div class="col-12 col-md-7">
                         <div class="card-body">
@@ -29,8 +29,8 @@
                     <a href=""><i class="fa fa-calendar" style="color: rgb(247, 163, 68);"></i>
                         {{ article.create_time }}</a>
                     <a class="line" href=""><i class="fa fa-comments"
-                                               style="color: yellowgreen;">&nbsp;</i>0评论</a>&nbsp;
-                    <a href=""><i class="fa fa-eye" style="color: lightskyblue;"></i> 31阅读</a>&nbsp;
+                                               style="color: yellowgreen;">&nbsp;</i>{{ article.comment_set.all.count }}评论</a>&nbsp;
+                    <a href=""><i class="fa fa-eye" style="color: lightskyblue;"></i> {{ article.views }}阅读</a>&nbsp;
                 </span>
                     <span class="d-none d-lg-block info">
                     <a class="line" href=""><i class="fa fa-heart" style="color: #FF6767;"></i>
