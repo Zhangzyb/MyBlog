@@ -12,7 +12,7 @@ class CommentForm(ModelForm):
                 'class': 'form-control form-control-lg',
             }),
             'email': EmailInput(attrs={
-                'placeholder': '邮箱',
+                'placeholder': 'QQ邮箱',
                 'class': 'form-control form-control-lg',
             }),
             'text': Textarea(attrs={
