@@ -1,17 +1,12 @@
 <div id="aside-third" class="card aside">
-    <!-- <img class="card-img-top" src="img/1.jpg" alt="Card image cap"> -->
     <div class="card-body tags">
-        <h5 class="card-title">标签云</h5>
+        <h5 class="card-title">
+            <i class="fa fa-tag" style="color: darkseagreen; font-size: 1em;margin: 0.3rem 0 0 0.3rem"></i>
+            标签云
+        </h5>
         <div class="tag-set">
             {% for tag in tag_list %}
-            <a href="{% url 'article:tag' tag.name %}" class="badge badge-primary">{{ tag.name }}</a>
-{#            <a href="#" class="badge badge-secondary">Secondary</a>#}
-{#            <a href="#" class="badge badge-success">Success</a>#}
-{#            <a href="#" class="badge badge-danger">Danger</a>#}
-{#            <a href="#" class="badge badge-warning">Warning</a>#}
-{#            <a href="#" class="badge badge-info">Info</a>#}
-{#            <a href="#" class="badge badge-light">Light</a>#}
-{#            <a href="#" class="badge badge-dark">Dark</a>#}
+            <a href="{% url 'article:tag' tag.name %}">{{ tag.name }}</a>
             {% endfor %}
         </div>
     </div>
