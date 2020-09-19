@@ -24,6 +24,14 @@
                         <p class="card-text">{{ article.text|safe}}</p>
                     </div>
                 </div>
+                <div id="tags">
+                    <span>
+                        <i class="fa fa-tags" style="color: rgb(245, 10, 30);"></i>
+                        {% for tag in article.tag.all %}
+                        {{ tag.name}}
+                        {% endfor %}
+                    </span>
+                </div>
                 <div class="shortcut">
                     <div class="pre">
                         {% if pre_article %}
