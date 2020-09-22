@@ -1,12 +1,11 @@
 from django.conf import settings
-from django.core.mail import send_mail, send_mass_mail
 from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.views.decorators.http import require_POST
 from .forms import CommentForm
 from article.models import Article
 from .models import Comment
-
+from celery_tasks.email.tasks import send_comment_email, send_sub_comment_email
 
 @require_POST
 def comment(request, english_name):
@@ -20,8 +19,7 @@ def comment(request, english_name):
     comment_ins.img_url = img_url
     comment_ins.save()
     detail_url = request.META.get('HTTP_REFERER') + '#comment-area'
-    html_message = f'<p style="font-size:1.5rem;">{comment_ins.name}评论了{article.title}。详情点击：<a href="{detail_url}">评论</a></p>'
-    send_mail('评论回复', '', settings.EMAIL_FROM, [settings.DEFAULT_EMAIL], html_message=html_message)
+    send_comment_email.delay(comment_ins.name, article.title, detail_url)
     return redirect(reverse('article:detail', kwargs={'english_name': english_name}))
 
 
@@ -40,12 +38,12 @@ def sub_comment(request, english_name, comment_id, reply_id):
     comment.reply_name = reply_name
     comment.parent_comment = parent_comment
     comment.save()
-    detail_url = request.META.get('HTTP_REFERER')+'#comment-area'
-    html_message1 = f'{comment.name}评论了{article.title}。详情点击：{detail_url}'
-    html_message2 = f'{reply_name}您好!\n{comment.name}在{article.title}中回复了您的评论：{parent_comment.text}。\n详情请点击：{detail_url}'
-    message1 = ('评论回复', html_message1, settings.EMAIL_FROM, [settings.DEFAULT_EMAIL])
-    message2 = ('评论回复', html_message2, settings.EMAIL_FROM, [parent_comment.email])
-    send_mass_mail((message1, message2), fail_silently=False)
+    detail_url = request.META.get('HTTP_REFERER') + '#comment-area'
+    if email != settings.DEFAULT_EMAIL or request.user.username != settings.DEFAULT_USER:
+       send_sub_comment_email.delay(comment.name, article.title, detail_url, reply_name, parent_comment.text, parent_comment.email)
+    else:
+        comment.img_url = settings.DEFAULT_URL
+        comment.save()
     return redirect(reverse('article:detail', kwargs={'english_name': english_name}))
 
 
