@@ -22,6 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('article.url', namespace='article')),
     path('', include('comment.url', namespace='comment')),
+    path('search/', include('haystack.urls')),
     path('mdeditor/', include('mdeditor.urls')),
     # path(''),
 ]
