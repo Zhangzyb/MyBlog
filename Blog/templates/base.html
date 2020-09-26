@@ -50,8 +50,8 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             {% category %}
-            <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2 search-input" type="search" aria-label="Search">
+            <form class="form-inline my-2 my-lg-0" method="get" action="{% url 'haystack_search' %}">
+                <input class="form-control mr-sm-2 search-input" type="search" aria-label="Search" name="q">
                 <button class="btn btn btn-outline-primary my-2 my-sm-0 fa fa-search s active" type="submit"></button>
             </form>
         </div>
