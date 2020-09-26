@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% load highlight %}
+{% block article %}
+{% if query %}
+<div class="articles ">
+    {% for article in page.object_list %}
+    <div class="card mb-3 article">
+        <div class="row no-gutters ">
+            <div class="col-12 col-md-5">
+                <img src="{{ article.object.image }}" class="card-img thumb mr-3" alt="...">
+            </div>
+            <div class="col-12 col-md-7">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <a class="cate" href="">{{article.object.category }}
+                        </a> <i class="fas fa-caret-right"></i>
+                        &nbsp;{% highlight article.object.title with query %}</h5>
+                    <p class="card-text post-abstract">{% highlight article.object.text with query %}...</p>
+                </div>
+            </div>
+        </div>
+        <hr class="topline">
+        <div class="bottom">
+                <span class="info">
+                    <a href=""><i class="fa fa-calendar" style="color: rgb(247, 163, 68);"></i>
+                        {{ article.object.create_time }}</a>
+                    <a class="line" href="JavaScript:;"><i class="fa fa-comments"
+                                                           style="color: yellowgreen;">&nbsp;</i>{{ article.object.comment_set.all.count }}评论</a>&nbsp;
+                    <a href="JavaScript:;"><i class="fa fa-eye" style="color: lightskyblue;"></i> {{ article.object.views }}阅读</a>&nbsp;
+                </span>
+            <span class="d-none d-lg-block info">
+                    <a class="line" href="JavaScript:;"><i class="fa fa-heart" style="color: #FF6767;"></i>
+                                    {{ article.object.likes }}喜欢</a>&nbsp;
+                    <a class="line" href="JavaScript:;"><i class="fa fa-user"
+                                                           style="color: #f0c674;"></i>&nbsp;{{ article.object.author }}</a>
+                </span>
+            <span class="info-right">
+                    <a class="mr-0" href="{% url 'article:detail' article.object.english_name %}" title="阅读全文">阅读全文<i
+                            class="fa fa-chevron-circle-right"></i></a>
+                </span>
+        </div>
+    </div>
+    {% empty %}
+    <div class="article_info">
+        <span> <i class="fas fa-tag" style="color:#FF6767"></i> No results!</span>
+    </div>
+    {% endfor %}
+    {% if page.has_previous or page.has_next %}
+    <div id="result_page">
+        {% if page.has_previous %}
+        <a href="?q={{ query }}&amp;page={{ page.previous_page_number }}">
+            {% endif %}
+            &laquo;&nbsp; Previous
+            {% if page.has_previous %}</a>
+        {% endif %} |
+        {% if page.has_next %}<a href="?q={{ query }}&amp;page={{ page.next_page_number }}">
+        {% endif %}
+        Next &nbsp;&raquo;
+        {% if page.has_next %}</a>
+        {% endif %}
+    </div>
+    {% endif %}
+</div>
+{% else %}
+ <div class="article_info">
+        <span> <i class="fas fa-tag" style="color:#FF6767"></i> 请输入关键词，并以空格隔开。</span>
+    </div>
+{% endif %}
+{% endblock article %}
