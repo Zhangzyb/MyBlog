@@ -496,4 +496,13 @@ a:hover {
     margin: 0 auto;
 }
 
+.highlighted{
+    color: #f92672;
+}
+
+#result_page{
+    text-align: center;
+    font-size: 1.2rem;
+}
+
 
