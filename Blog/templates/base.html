@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+{% load static %}
 {% load article_extra %}
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta name="baidu-site-verification" content="code-N9UkBKzDzL"/>
+    <meta name="keyword" content="Django,Python,zhangzyb,web开发,blog">
     <link rel="shortcut icon" href="https://i.loli.net/2020/09/21/z5qLjA2F9Q1lJIY.jpg">
     <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="/static/css/monokai-sublime.css">
-    <link rel="stylesheet" href="/static/css/mycss.css">
+    <link href="https://cdn.bootcdn.net/ajax/libs/highlight.js/10.2.0/styles/gradient-light.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/mycss.css' %}">
     <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.14.0/css/all.min.css" rel="stylesheet">
     <title>一往无前</title>
     <style>
@@ -50,7 +53,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             {% category %}
-            <form class="form-inline my-2 my-lg-0" method="get" action="{% url 'haystack_search' %}">
+            <form class="form-inline my-2 my-lg-0" method="get" action="{% url 'haystack_search'  %}">
                 <input class="form-control mr-sm-2 search-input" type="search" aria-label="Search" name="q">
                 <button class="btn btn btn-outline-primary my-2 my-sm-0 fa fa-search s active" type="submit"></button>
             </form>
@@ -110,13 +113,14 @@
             <div id="aside-second" class="card aside">
                 <img id="bg1" class="card-img" src="https://i.loli.net/2020/09/15/uMKHBpynWsOzYbk.jpg" alt="">
                 <div class="x">
-                    <img id="bg" class="card-img-top " src="https://i.loli.net/2020/09/15/nAZhmDaB9uLvJ6l.jpg" alt="Card image cap">
+                    <img id="bg" class="card-img-top " src="https://i.loli.net/2020/09/15/nAZhmDaB9uLvJ6l.jpg"
+                         alt="Card image cap">
                 </div>
                 <h4 class="card-title user">Zhangzyb</h4>
                 <a id="g" href="https://github.com/Zhangzyb" data-toggle="tooltip" data-placement="top"
                    title="Github">
                     <img src="https://api.ly522.com/ico/favicon.php?url=github.com/" alt="Github"></a>
-                <p class="card-text lg">总有人会被梦想抛弃。</p>
+                <p class="card-text lg">生前无需久睡，死后自会长眠。</p>
             </div>
             {% tag %}
             {% archive %}
@@ -129,14 +133,14 @@
 </div>
 
 <div class="footer">
-    123
+    <p class="h5">&copy; 2020 <a href="{% url 'article:index'  %}">一往无前</a></p>
+    <p class="h5">Powered by Zhangzyb ※ <a href="https://getbootstrap.com/">Bootstrap</a></p>
 </div>
-<script type="text/javascript" color="#17a2b8" opacity='0.7' zIndex="-2" count="200"
-        src="//cdn.bootcss.com/canvas-nest.js/1.0.1/canvas-nest.min.js"></script>
+<script src='https://api.vvhan.com/api/snow'></script>
 <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
-<script src="https://cdn.bootcdn.net/ajax/libs/highlight.js/10.1.2/highlight.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/highlight.js/10.2.0/highlight.min.js"></script>
 <script src="https://cdn.bootcdn.net/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
 <script>
     hljs.initHighlightingOnLoad();

@@ -482,6 +482,7 @@ a:hover {
 
 .shortcut{
     padding: 0.1rem 0.7rem;
+    font-size: 1.3rem;
 }
 
 .pre{
@@ -490,6 +491,30 @@ a:hover {
 
 .next{
     float: right;
+}
+
+#tags{
+    margin: 1.5rem 0 0.5rem 1rem;
+    color: deepskyblue;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.footer{
+    width: 100%;
+    height: 6rem;
+    margin-top: 6rem;
+    text-align: center;
+    padding-top: 1rem;
+    background-color: rgba(6, 7, 6, 0.363);
+    font-family: 'Times New Roman', 楷体, Cambria, Cochin, Georgia, Times, serif;
+}
+
+.h5{
+    color: rgba(255, 255, 255, 0.719);
+}
+
+.h5 a{
+    color: rgb(19, 176, 182);
 }
 
 .pagination > span{
