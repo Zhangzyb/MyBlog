@@ -5,7 +5,7 @@ from .models import Article, Tag, Category
 
 
 def index(request):
-    articles = Article.objects.all()
+    articles = Article.objects.all().order_by('-create_time')
     paginator = Paginator(articles, 5)
     page_number = request.GET.get('page')
     article_list = paginator.get_page(page_number)
