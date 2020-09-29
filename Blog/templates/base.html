@@ -113,7 +113,7 @@
             <div id="aside-second" class="card aside">
                 <img id="bg1" class="card-img" src="https://i.loli.net/2020/09/15/uMKHBpynWsOzYbk.jpg" alt="">
                 <div class="x">
-                    <img id="bg" class="card-img-top " src="https://i.loli.net/2020/09/15/nAZhmDaB9uLvJ6l.jpg"
+                    <img id="bg" class="card-img-top " src="https://i.loli.net/2020/09/29/82e96YnbvQOUao5.jpg"
                          alt="Card image cap">
                 </div>
                 <h4 class="card-title user">Zhangzyb</h4>
@@ -124,6 +124,7 @@
             </div>
             {% tag %}
             {% archive %}
+            {% get_recent %}
         </div>
         <div class="col-12 col-lg-8">
             {% block article %}
@@ -132,11 +133,17 @@
     </div>
 </div>
 
+<div id="gotop">
+    <span class="fa fa-arrow-up fa-2x" data-toggle="tooltip" data-placement="top" title="回到顶部"></span>
+</div>
+
 <div class="footer">
     <p class="h5">&copy; 2020 <a href="{% url 'article:index'  %}">一往无前</a></p>
-    <p class="h5">Powered by Zhangzyb ※ <a href="https://getbootstrap.com/">Bootstrap</a></p>
+    <p class="h5">Powered by <a href="https://www.djangoproject.com/">Django</a> ※ <a href="https://getbootstrap.com/">Bootstrap</a>
+    </p>
 </div>
 <script src='https://api.vvhan.com/api/snow'></script>
+<script src="https://cdn.bootcss.com/popper.js/1.15.0/umd/popper.js"></script>
 <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
@@ -160,17 +167,29 @@
         comment_common.toggle();
         $(this).parent().siblings(".reply_div").toggle();
     })
+</script>
+<script>
     $(function () {
-        $(window).scroll(function () {
-            if ($(window).scrollTop() > 1000)
-                $('div.go-top').show();
-            else
-                $('div.go-top').hide();
-        });
-        $('div.go-top').click(function () {
-            $('html, body').animate({scrollTop: 0}, 1000);
-        });
-    });
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+</script>
+<script>
+    window.addEventListener("scroll", handle)
+
+    function handle() {
+        var oTop = document.body.scrollTop || document.documentElement.scrollTop
+        if (oTop >= 100) {
+            gotop.style.display = "block";
+        } else {
+            gotop.style.display = "none";
+        }
+        gotop.onclick = function () {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            })
+        }
+    }
 </script>
 </body>
 </html>
