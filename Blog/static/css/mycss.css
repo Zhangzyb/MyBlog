@@ -27,20 +27,7 @@ body {
     background-color: #000000;
 }
 
-p::selection,
-h5::selection,
-span::selection,
-h4::selection,
-a::selection,
-i::selection,
-li::selection,
-h1::selection,
-h2::selection,
-h3::selection,
-h5::selection,
-h6::selection,
-strong::selection,
-code::selection {
+::selection {
     color: #fff;
     background-color: #000000;
 }
@@ -121,8 +108,6 @@ a:hover {
 .thumb {
     width: 100%;
     height: auto;
-    /*display: block;*/
-    /* padding-bottom: 1.6em; */
 }
 
 .bottom {
@@ -139,37 +124,11 @@ a:hover {
     font-family: 'Times New Roman', 楷体, Cambria, Cochin, Georgia, Times, serif;
 }
 
-#mind {
-    width: 30%;
-    font-size: 20px;
-    text-align: center;
-    margin-bottom: 7px;
-    background-color: rgba(57, 241, 149, .3);
-    font-family: 华文行楷, 'Times New Roman', 楷体, Cambria, Cochin, Georgia, Times, serif;
-}
-
-#date {
-    font-size: 1.5em;
-    margin-left: 3%;
-    font-family: 'Times New Roman', 楷体, Cambria, Cochin, Georgia, Times, serif;
-    color: rgba(41, 174, 207, 0.863);
-}
-
-#sentence {
-    margin-top: 5px;
-    font-size: 18px;
-    font-family: 'Times New Roman', 楷体, Cambria, Cochin, Georgia, Times, serif;
-}
-
-#sentence::first-line {
-    text-indent: 2em;
-}
-
 .aside {
     margin: 15px 0;
 }
 
-.card-img {
+.index-img {
     padding-bottom: 1rem;
 }
 
@@ -367,7 +326,6 @@ a:hover {
 }
 
 .dropdown-menu {
-    /* margin: 0; */
     padding: 0;
     left: 0;
     background-color: rgba(214, 211, 211, 0.281);
@@ -396,7 +354,6 @@ a:hover {
 }
 
 .form-control:focus {
-    /*color: #000000;*/
     border-radius: 10px;
     background-color: #fff;
     border-color: #14c0b781;
@@ -426,7 +383,6 @@ a:hover {
 }
 
 .comment-item {
-    /* background-color: rgba(25, 150, 52, 0.178); */
     margin: 0.5rem 2rem;
 }
 
@@ -440,12 +396,12 @@ a:hover {
     z-index: 10;
 }
 
-.user-img {
+.user-img, .comment-img{
     width: 50px;
     height: 50px;
 }
 
-.user-img img {
+.user-img img, .comment-img img{
     width: 100%;
     border-radius: 50%;
     overflow: hidden;
@@ -459,8 +415,9 @@ a:hover {
 
 .comment-content {
     margin-top: -3rem;
-    /*text-indent: 2em;*/
     padding: 0 0 0 3rem;
+    font-family: 宋体, 'Times New Roman', 楷体, Cambria, Cochin, Georgia, Times, serif;;
+    color: #000;
 }
 
 .comment-form, .reply-form {
@@ -474,11 +431,6 @@ a:hover {
 .reply-list {
     padding: 0 0 0 2.7rem;
 }
-
-/*.reply-item {*/
-/*    padding: 1rem 0 0 1rem;*/
-/*    background-color: rgba(64, 233, 163, 0.199);*/
-/*}*/
 
 .shortcut{
     padding: 0.1rem 0.7rem;
@@ -530,4 +482,87 @@ a:hover {
     font-size: 1.2rem;
 }
 
+.latest_comment a:hover {
+    color: #13131686;
+}
 
+.nav-tabs .nav-link.active {
+    color: #fdfeff;
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.latest_comment .nav-tabs {
+    border: 0;
+}
+
+.nav-tabs .nav-link:hover, .nav-tabs .nav-link:focus {
+    border-color: transparent;
+}
+
+.latest_comment .nav-link {
+    color: #000000;
+}
+
+.latest_comment{
+    background-image: url('https://i.loli.net/2020/09/29/PWuhdNkSwlHvfpK.jpg');
+}
+
+.recent-comment {
+    border-style: solid none none;
+    border-radius: 0 0 1rem 1rem;
+    border-color: transparent;
+}
+
+.comment-list a, .comment-list a:hover{
+    background-color: transparent;
+}
+
+.co, .co:hover {
+    width: 100%;
+    background-color: transparent;
+}
+
+.com-text {
+    margin-top: 4px;
+}
+
+.list-group-item {
+    padding: 0.5rem;
+}
+
+.hot-post{
+    padding-bottom: 0.3rem;
+    margin-bottom: 1rem;
+}
+
+.post-item{
+    margin: 0 1rem 1rem 1rem;
+    border: none;
+}
+
+#nav-home{
+    padding-bottom: 1rem;
+}
+
+.latest_comment{
+    border-radius: 0 0 15px 15px;
+}
+
+.comment-list *{
+    font-family: "Times New Roman", "微软雅黑", Helvetica, Tahoma, STXihei, "华文细黑", STHeiti, "Helvetica Neue", Helvetica, Tahoma, "Droid Sans", "wenquanyi micro hei", FreeSans, Arimo, Arial, SimSun, "宋体", Heiti, "黑体", sans-serif;
+}
+
+#gotop{
+    position: fixed;
+    display: none;
+    right: 0;
+    bottom: 0;
+}
+#gotop span{
+    width: 50px;
+    height: 140px;
+}
+#gotop span:hover{
+    cursor: pointer;
+}
