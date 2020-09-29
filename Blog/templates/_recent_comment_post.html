@@ -1,0 +1,63 @@
+{% load article_extra %}
+<div class="latest_comment">
+    <nav>
+        <div class="nav nav-tabs" id="nav-tab">
+            <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab"
+               href="#nav-home">最新评论</a>
+            <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab"
+               href="#nav-profile">最热文章</a>
+        </div>
+    </nav>
+    <div class="tab-content recent-comment" id="nav-tabContent">
+        <div class="tab-pane fade show active" id="nav-home">
+            <div class="list-group comment-list">
+                {% for comment in comment_list %}
+                <div class="list-group-item co">
+                    <div class="row">
+                        <div class="col-12 col-md-2">
+                            <div class="comment-img">
+                                <img src="{{ comment.img_url }}"
+                                     alt="user-img">
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-10">
+                            <div class="com-info">
+                                <span class="com-name" style="font-size: 1rem;">{{ comment.name }}</span>
+                                <span class="com-time info-right" style="font-size: 1rem;">{{ comment.created_time|since_time }}</span>
+                            </div>
+                            <div class="com-text" style="font-size: 1.2rem;">
+                                <a href="{% url 'article:detail' comment.article.english_name %}" style="color: rgb(11,12,12);">
+                                    {% if comment.text|length > 15 %}
+                                    {{ comment.text|truncatechars:15 }}...
+                                    {% else %}
+                                    {{ comment.text }}
+                                    {% endif %}
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% empty %}
+                <p>暂无评论</p>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="tab-pane fade" id="nav-profile">
+            <div class="hot-post">
+                {% for article in article_list %}
+                <div class="card text-white post-item">
+                    <img class="card-img" src="{{article.image.url}}" alt="Card image">
+                    <div class="card-img-overlay" style="text-align: left;">
+                        <h5 class="card-text post-time">
+                            <i class="fa fa-calendar-minus fa-sm"></i>&nbsp;{{ article.create_time }}</h5>
+                        <p class="card-title post-title" style="font-size: 1.2rem;">
+                            <a href="{% url 'article:detail' article.english_name %}" style="color: #fff;">{{ article.title }}</a></p>
+                    </div>
+                </div>
+                {% empty %}
+                <p>暂无文章</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
