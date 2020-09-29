@@ -1,10 +1,21 @@
 from django import template
 from django.utils import timezone
 
-from Blog.settings import TIME_ZERO, TIME_MIN, TIME_HOUR, TIME_MONTH, TIME_ONE, TIME_HALF_YEAR
+from Blog.settings import TIME_ZERO, TIME_MIN, TIME_HOUR, TIME_MONTH, TIME_ONE, TIME_HALF_YEAR, DEFAULT_EMAIL
+from comment.models import Comment
 from ..models import Article, Tag, Category
 
 register = template.Library()
+
+
+@register.inclusion_tag('_recent_comment_post.html')
+def get_recent():
+    comment_list = Comment.objects.exclude(email=DEFAULT_EMAIL).order_by('-created_time')[:5]
+    article_list = Article.objects.all().order_by('-views', '-create_time')[:5]
+    return {
+        'comment_list': comment_list,
+        'article_list': article_list
+    }
 
 
 @register.inclusion_tag('_archive.html')
