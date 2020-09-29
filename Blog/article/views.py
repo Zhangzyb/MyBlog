@@ -6,7 +6,7 @@ from .models import Article, Tag, Category
 
 def index(request):
     articles = Article.objects.all().order_by('-create_time')
-    paginator = Paginator(articles, 5)
+    paginator = Paginator(articles, 6)
     page_number = request.GET.get('page')
     article_list = paginator.get_page(page_number)
     page_range = pagination(article_list)
@@ -35,7 +35,7 @@ def detail(request, english_name):
 
 def archive(request, year, month):
     articles = Article.objects.filter(create_time__year=year, create_time__month=month).order_by('-create_time')
-    paginator = Paginator(articles, 5)
+    paginator = Paginator(articles, 6)
     page_number = request.GET.get('page')
     article_list = paginator.get_page(page_number)
     page_range = pagination(article_list)
@@ -45,8 +45,8 @@ def archive(request, year, month):
 
 def tag(request, name):
     tag_id = Tag.objects.filter(name=name).first()
-    articles = Article.objects.filter(tag=tag_id)
-    paginator = Paginator(articles, 5)
+    articles = Article.objects.filter(tag=tag_id).order_by('-create_time')
+    paginator = Paginator(articles, 6)
     page_number = request.GET.get('page')
     article_list = paginator.get_page(page_number)
     page_range = pagination(article_list)
@@ -56,8 +56,8 @@ def tag(request, name):
 
 def category(request, cate_name):
     category_id = Category.objects.filter(cate_name=cate_name).first()
-    articles = Article.objects.filter(category=category_id)
-    paginator = Paginator(articles, 5)
+    articles = Article.objects.filter(category=category_id).order_by('-create_time')
+    paginator = Paginator(articles, 6)
     page_number = request.GET.get('page')
     article_list = paginator.get_page(page_number)
     page_range = pagination(article_list)
