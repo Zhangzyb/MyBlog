@@ -73,7 +73,7 @@ body {
     box-shadow: rgba(31, 29, 29, 0.4) 0 0 20px;
     -webkit-transform: translate3d(0, -2px, 0);
     transform: translate3d(0, -10px, 0);
-    border: rgb(19, 176, 182);
+    border: 1px solid rgb(19, 176, 182);
     transition-duration: 0.6s
 }
 
