@@ -550,7 +550,7 @@ a:hover {
 }
 
 .comment-list *{
-    font-family: "Times New Roman", "微软雅黑", Helvetica, Tahoma, STXihei, "华文细黑", STHeiti, "Helvetica Neue", Helvetica, Tahoma, "Droid Sans", "wenquanyi micro hei", FreeSans, Arimo, Arial, SimSun, "宋体", Heiti, "黑体", sans-serif;
+    font-family: 'Times New Roman', 楷体, Cambria, Cochin, Georgia, Times, serif;
 }
 
 #gotop{
