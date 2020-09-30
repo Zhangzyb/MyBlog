@@ -416,7 +416,7 @@ a:hover {
 .comment-content {
     margin-top: -3rem;
     padding: 0 0 0 3rem;
-    font-family: 宋体, 'Times New Roman', 楷体, Cambria, Cochin, Georgia, Times, serif;;
+    font-family: 'Times New Roman', 宋体, 楷体, Cambria, Cochin, Georgia, Times, serif;;
     color: #000;
 }
 
