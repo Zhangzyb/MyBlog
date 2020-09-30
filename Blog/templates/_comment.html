@@ -1,3 +1,4 @@
+{% load article_extra %}
 <div class="card" id="comment-area">
     <div class="comments">
         {% if comment_list %}
@@ -15,7 +16,7 @@
             </div>
             <div class="user-info">
                 <h5>{{comment.name}}</h5>
-                <h6>{{comment.created_time}}</h6>
+                <h6>{{comment.created_time|since_time}}</h6>
             </div>
             <div class="comment-content">
                 <p>{{comment.text}}</p>
@@ -32,7 +33,7 @@
                     </div>
                     <div class="user-info">
                         <h5>{{ reply.name }}</h5>
-                        <h6>{{ reply.created_time }} </h6>
+                        <h6>{{ reply.created_time|since_time }} </h6>
                     </div>
                     <div class="comment-content">
                         <span class="btn-info">@ {{ reply.reply_name }}:&nbsp;</span>
