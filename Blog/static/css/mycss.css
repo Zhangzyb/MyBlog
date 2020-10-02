@@ -1,22 +1,22 @@
 /*bootstrap原始修改*/
 
 @media (min-width: 1400px) {
-  .container {
-    max-width: 1280px;
-  }
+    .container {
+        max-width: 1280px;
+    }
 }
 
 @media (min-width: 1400px) {
-  .container, .container-sm, .container-md, .container-lg, .container-xl {
-    max-width: 1280px;
-  }
+    .container, .container-sm, .container-md, .container-lg, .container-xl {
+        max-width: 1280px;
+    }
 }
 
 .card-body {
-  -ms-flex: 1 1 auto;
-  flex: 1 1 auto;
-  min-height: 1px;
-  padding: 0.1rem 0.7rem;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding: 0.1rem 0.7rem;
 }
 
 body {
@@ -396,12 +396,12 @@ a:hover {
     z-index: 10;
 }
 
-.user-img, .comment-img{
+.user-img, .comment-img {
     width: 50px;
     height: 50px;
 }
 
-.user-img img, .comment-img img{
+.user-img img, .comment-img img {
     width: 100%;
     border-radius: 50%;
     overflow: hidden;
@@ -432,26 +432,26 @@ a:hover {
     padding: 0 0 0 2.7rem;
 }
 
-.shortcut{
+.shortcut {
     padding: 0.1rem 0.7rem;
     font-size: 1.3rem;
 }
 
-.pre{
+.pre {
     float: left;
 }
 
-.next{
+.next {
     float: right;
 }
 
-#tags{
+#tags {
     margin: 1.5rem 0 0.5rem 1rem;
     color: deepskyblue;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-.footer{
+.footer {
     width: 100%;
     height: 6rem;
     margin-top: 6rem;
@@ -461,23 +461,23 @@ a:hover {
     font-family: 'Times New Roman', 楷体, Cambria, Cochin, Georgia, Times, serif;
 }
 
-.h5{
+.h5 {
     color: rgba(255, 255, 255, 0.719);
 }
 
-.h5 a{
+.h5 a {
     color: rgb(19, 176, 182);
 }
 
-.pagination > span{
+.pagination > span {
     margin: 0 auto;
 }
 
-.highlighted{
+.highlighted {
     color: #f92672;
 }
 
-#result_page{
+#result_page {
     text-align: center;
     font-size: 1.2rem;
 }
@@ -504,7 +504,7 @@ a:hover {
     color: #000000;
 }
 
-.latest_comment{
+.latest_comment {
     background-image: url('https://i.loli.net/2020/09/29/PWuhdNkSwlHvfpK.jpg');
 }
 
@@ -512,9 +512,10 @@ a:hover {
     border-style: solid none none;
     border-radius: 0 0 1rem 1rem;
     border-color: transparent;
+    margin-bottom: 1rem;
 }
 
-.comment-list a, .comment-list a:hover{
+.comment-list a, .comment-list a:hover {
     background-color: transparent;
 }
 
@@ -531,38 +532,59 @@ a:hover {
     padding: 0.5rem;
 }
 
-.hot-post{
+.hot-post {
     padding-bottom: 0.3rem;
     margin-bottom: 1rem;
 }
 
-.post-item{
+.post-item {
     margin: 0 1rem 1rem 1rem;
     border: none;
 }
 
-#nav-home{
-    padding-bottom: 1rem;
-}
-
-.latest_comment{
+.latest_comment, .comment-list{
     border-radius: 0 0 15px 15px;
 }
 
-.comment-list *{
+.comment-list * {
     font-family: 'Times New Roman', 楷体, Cambria, Cochin, Georgia, Times, serif;
 }
 
-#gotop{
+#gotop {
     position: fixed;
     display: none;
     right: 0;
     bottom: 0;
 }
-#gotop span{
+
+#gotop span {
     width: 50px;
     height: 140px;
 }
-#gotop span:hover{
+
+#gotop span:hover {
     cursor: pointer;
+}
+
+.like {
+    margin-right: 1rem;
+    font-size: 1.1rem;
+    color: rgb(241, 71, 105);
+    width: 77px;
+    background-color: #fff;
+    border: 3px solid rgb(241, 71, 105);
+    text-align: center;
+    border-radius: 15px;
+    cursor: pointer;
+}
+
+.like:hover{
+    color: #fff;
+    background-color: rgb(241, 71, 105);
+}
+
+
+
+[v-cloak] {
+    display: none;
 }
