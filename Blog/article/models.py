@@ -44,7 +44,6 @@ class Article(models.Model):
     views = models.PositiveIntegerField(default=0, editable=False)
     likes = models.PositiveIntegerField(default=0, editable=False)
 
-
     class Meta:
         verbose_name = '文章'
         verbose_name_plural = verbose_name
@@ -64,3 +63,15 @@ class Article(models.Model):
     def inc_views(self):
         self.views += 1
         self.save(update_fields=['views'])
+
+    def inc_likes(self):
+        self.likes += 1
+        self.save(update_fields=['likes'])
+
+
+class PostLikes(models.Model):
+    ip_address = models.CharField('IP地址', max_length=10)
+    post = models.ManyToManyField(Article, verbose_name='文章')
+
+    def __str__(self):
+        return self.ip_address

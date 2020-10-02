@@ -1,7 +1,25 @@
 import markdown
+from django import http
 from django.core.paginator import Paginator
-from django.shortcuts import render, get_object_or_404
-from .models import Article, Tag, Category
+from django.shortcuts import render, get_object_or_404, redirect
+from django.urls import reverse
+from .models import Article, Tag, Category, PostLikes
+
+
+def add_likes(request, english_name):
+    article = Article.objects.get(english_name=english_name)
+    if request.META.get('HTTP_X_FORWARDED_FOR'):
+        ip_address = request.META['HTTP_X_FORWARDED_FOR']
+    else:
+        ip_address = request.META['REMOTE_ADDR']
+    if PostLikes.objects.filter(ip_address=ip_address, post=article).exists() or request.user == article.author:
+        return http.JsonResponse({'status': 0})
+    else:
+        post_like = PostLikes(ip_address=ip_address)
+        post_like.save()
+        post_like.post.add(article)
+        article.inc_likes()
+        return http.JsonResponse({'status': 200, 'likes': article.likes})
 
 
 def index(request):

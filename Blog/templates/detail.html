@@ -2,7 +2,7 @@
 {% load comment_extra %}
 {% block article %}
 <div class="articles ">
-    <div class="card mb-3 detail-article">
+    <div class="card mb-3 detail-article" id="app" v-cloak>
         <div class="row no-gutters ">
             <div class="col-md-12">
                 <div class="card-body">
@@ -17,19 +17,23 @@
                         <a href="javascript:;"><i class="fa fa-eye" style="color: lightskyblue;"></i>
                             {{ article.views }}阅读&nbsp;</a>
                         <a href="javascript:;"><i class="fa fa-heart" style="color: #FF6767;"></i>
-                            {{ article.likes }}喜欢&nbsp;</a>
-                        <a href="javascript:;"><i class="fa fa-user" style="color: #f0c674;"></i> {{ article.author }}</a>
+                            [[ likes ]]喜欢&nbsp;</a>
+                        <a href="javascript:;"><i class="fa fa-user" style="color: #f0c674;"></i>
+                            {{ article.author }}</a>
                     </div>
                     <div class="content">
                         <p class="card-text">{{ article.text|safe}}</p>
                     </div>
                 </div>
                 <div id="tags">
-                    <span>
+                    <span class="article_tag">
                         <i class="fa fa-tags" style="color: rgb(245, 10, 30);"></i>
                         {% for tag in article.tag.all %}
-                        {{ tag.name}}
+                        <span style="padding: 0.2rem;color:#000;">{{ tag.name}}</span>
                         {% endfor %}
+                        <span @click="add" class="info-right like">
+                            <i class="fa fa-heart">&nbsp;[[ likes ]]</i>
+                        </span>
                     </span>
                 </div>
                 <div class="shortcut">
@@ -64,5 +68,47 @@
         </div>
     </div>
 </div>
+<script>
+    let likes = "{{ article.likes }}"
+    let english_name = "{{ article.english_name }}"
+</script>
+<script>
+    let vm = new Vue({
+        el: '#app',
+        delimiters: ['[[', ']]'],
+        data: {
+            likes: likes,
+            english_name: english_name
+        },
+        methods: {
+            add: function () {
+                let url = '/article/inc_like/' + this.english_name + '/';
+                axios.get(url, {
+                    responseType: 'json'
+                })
+                    .then(response => {
+                        if (response.data.status == 200) {
+                            this.likes = response.data.likes;
+                            layer.msg('hello', {
+                                content: '<span style="font-size: 1.3rem;">o(*≧▽≦)ツ</span>',
+                                offset: ['60%', '90%'],
+                                time: 2000
+                            })
+                        } else {
+                            layer.msg('hello', {
+                                // content: '<span style="font-size: 1.3rem;">o(*≧▽≦)ツ</span>',
+                                content: '赞&nbsp;过&nbsp;了! (>▽<)',
+                                offset: ['60%', '90%'],
+                                time: 2000
+                            })
+                        }
+                    })
+                    .catch(error => {
+                        console.log('error');
+                    })
+            }
+        }
+    });
+</script>
 {% comment %}
 {% endblock article %}
