@@ -257,8 +257,9 @@ a:hover {
 }
 
 .post-date {
-    margin: 0 10px;
+    /*margin: 0 10px;*/
     font-size: 1.3rem;
+    padding: 1px 12px;
 }
 
 .fa-search {
