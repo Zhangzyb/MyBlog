@@ -1,8 +1,7 @@
 import markdown
 from django import http
 from django.core.paginator import Paginator
-from django.shortcuts import render, get_object_or_404, redirect
-from django.urls import reverse
+from django.shortcuts import render, get_object_or_404
 from .models import Article, Tag, Category, PostLikes
 
 
