@@ -20,7 +20,7 @@
 }
 
 body {
-    background: url('https://i.loli.net/2020/08/28/K6Rd47yTanMUiL8.jpg') no-repeat center center fixed;
+    background: url('https://i.loli.net/2020/10/10/2Y4NH3Bdv8oxZjh.jpg') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -62,7 +62,6 @@ body {
 .article, .detail-article {
     background-color: rgba(239, 252, 252, 0.9);
     border-radius: 20px;
-    box-shadow: rgba(31, 29, 29, 0.4) 0 0 20px;
     padding: 1.5rem 1.5rem 0 1.5rem;
     transition-duration: 0.6s
 }
