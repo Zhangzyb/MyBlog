@@ -73,5 +73,12 @@ class PostLikes(models.Model):
     ip_address = models.CharField('IP地址', max_length=10)
     post = models.ManyToManyField(Article, verbose_name='文章')
 
+    class Meta:
+        verbose_name = '点赞'
+        verbose_name_plural = verbose_name
+
     def __str__(self):
         return self.ip_address
+
+
+
