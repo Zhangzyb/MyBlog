@@ -180,7 +180,6 @@ a:hover {
 }
 
 /* 文章详情页css */
-
 .detail-title {
     text-align: center;
     color: rgba(13, 112, 241, 0.705);
@@ -273,7 +272,6 @@ a:hover {
 }
 
 .post-date {
-    /*margin: 0 10px;*/
     font-size: 1.3rem;
     padding: 1px 12px;
 }
