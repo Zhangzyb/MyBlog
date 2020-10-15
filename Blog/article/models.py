@@ -9,7 +9,7 @@ from mdeditor.fields import MDTextField
 class Category(models.Model):
     name = models.CharField('分类', max_length=50)
     cate_name = models.CharField('英文名', max_length=50)
-    parent = models.ForeignKey('self', on_delete=models.SET_NULL, null=True, blank=True, related_name='subdir', verbose_name='上级目录')
+    parent = models.ForeignKey('self', on_delete=models.CASCADE, null=True, blank=True, related_name='subdir', verbose_name='上级目录')
 
     class Meta:
         verbose_name = '分类'
