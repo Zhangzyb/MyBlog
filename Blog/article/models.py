@@ -57,7 +57,7 @@ class Article(models.Model):
             'markdown.extensions.extra',
             'markdown.extensions.codehilite',
         ])
-        self.abstract = strip_tags(md.convert(self.text))[:260]
+        self.abstract = strip_tags(md.convert(self.text))[:200]
         super().save(*args, **kwargs)
 
     def inc_views(self):
