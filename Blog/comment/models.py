@@ -9,7 +9,7 @@ class Comment(models.Model):
     img_url = models.CharField('头像', max_length=100, null=True)
     created_time = models.DateTimeField('创建时间', default=timezone.now)
     article = models.ForeignKey('article.Article', verbose_name='文章', on_delete=models.CASCADE)
-    parent_comment = models.ForeignKey('self', on_delete=models.SET_NULL, null=True, blank=True, verbose_name='父级评论')
+    parent_comment = models.ForeignKey('self', on_delete=models.CASCADE, null=True, blank=True, verbose_name='父级评论')
     reply_name = models.CharField('回复名称', max_length=100, null=True)
 
     class Meta:
