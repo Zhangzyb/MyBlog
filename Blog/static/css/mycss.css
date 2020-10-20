@@ -12,6 +12,16 @@
     }
 }
 
+blockquote {
+    margin: 0 0 1rem;
+    color: #666;
+    border-left: 4px solid #beb5b5;
+    padding-left: 20px;
+    margin-left: 0;
+    font-size: 16px;
+    font-style: italic;
+}
+
 .card-body {
     -ms-flex: 1 1 auto;
     flex: 1 1 auto;
