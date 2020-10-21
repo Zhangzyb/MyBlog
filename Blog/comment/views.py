@@ -39,11 +39,10 @@ def sub_comment(request, english_name, comment_id, reply_id):
     comment.parent_comment = parent_comment
     comment.save()
     detail_url = request.META.get('HTTP_REFERER') + '#comment-area'
-    if email != settings.DEFAULT_EMAIL or request.user.username != settings.DEFAULT_USER:
-       send_sub_comment_email.delay(comment.name, article.title, detail_url, reply_name, parent_comment.text, parent_comment.email)
-    else:
+    if email == settings.DEFAULT_EMAIL and request.user.username == settings.DEFAULT_USER:
         comment.img_url = settings.DEFAULT_URL
         comment.save()
+    send_sub_comment_email.delay(comment.name, article.title, detail_url, reply_name, parent_comment.text, parent_comment.email, comment.email)
     return redirect(reverse('article:detail', kwargs={'english_name': english_name}))
 
 
