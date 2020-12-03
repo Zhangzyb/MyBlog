@@ -17,4 +17,4 @@
 - 分页使用Django自带的Pagination类。
 - 网站后台使用simpleui美化。
 
-<a href="www.zhangzyb.icu">个人博客</a>
+[个人博客](www.zhangzyb.icu)
