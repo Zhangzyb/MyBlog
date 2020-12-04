@@ -18,6 +18,6 @@ class CommentForm(ModelForm):
             'text': Textarea(attrs={
                 'class': 'form-control', 'rows': 3,
                 'id': 'exampleFormControlTextarea1',
-                'placeholder': '留下你的足迹! '
+                'placeholder': '留下你的足迹!'
             }),
         }
